@@ -19,7 +19,7 @@ export default async function HomePage() {
         <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-14 sm:py-20 md:grid-cols-2">
           <div className="text-center md:text-left">
             <h1 className="font-display text-4xl italic text-brand-dark sm:text-5xl">
-              Homemade. Fresh. Healthy.
+              Homemade. Fresh.
             </h1>
             <p className="mx-auto mt-3 max-w-sm text-foreground/70 md:mx-0">
               Delivered or ready for pickup.
