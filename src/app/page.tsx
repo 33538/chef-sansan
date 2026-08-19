@@ -19,11 +19,11 @@ export default async function HomePage() {
         <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-14 sm:py-20 md:grid-cols-2">
           <div className="text-center md:text-left">
             <h1 className="font-display text-4xl italic text-brand-dark sm:text-5xl">
-              Homemade. Fresh. Tasty.
+              Homemade, Elevated.
             </h1>
             <p className="mx-auto mt-4 max-w-md text-foreground/70 md:mx-0">
-              Every dish is cooked fresh by Chef Sansan using real, wholesome
-              ingredients &mdash; delivered to your door or ready for pickup.
+              Chef-crafted meals made from real, wholesome ingredients
+              &mdash; delivered to your door or ready for pickup.
             </p>
             <Link
               href="#menu"
