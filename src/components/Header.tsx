@@ -10,7 +10,9 @@ export function Header() {
     <header className="sticky top-0 z-10 border-b border-brand-light bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         <Link href="/" className="flex flex-col leading-tight">
-          <span className="text-xl font-bold text-brand-dark">Chef Sansan</span>
+          <span className="font-display text-xl italic text-brand-dark">
+            <span aria-hidden="true">🌿</span> Chef Sansan
+          </span>
           <span className="text-xs text-foreground/60">homemade &middot; fresh &middot; healthy</span>
         </Link>
         <nav className="flex items-center gap-5 text-sm font-medium">

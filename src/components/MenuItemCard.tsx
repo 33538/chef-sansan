@@ -22,10 +22,11 @@ export function MenuItemCard({ id, name, description, priceCents }: Props) {
   }
 
   return (
-    <div className="flex flex-col justify-between rounded-xl border border-brand-light bg-white p-5 shadow-sm">
+    <div className="flex flex-col justify-between rounded-2xl border border-brand-light bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
       <div>
+        <div className="mb-3 h-1 w-10 rounded-full bg-olive/60" aria-hidden="true" />
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-semibold text-foreground">{name}</h3>
+          <h3 className="font-display text-lg text-foreground">{name}</h3>
           <span className="whitespace-nowrap font-semibold text-brand-dark">
             {formatCents(priceCents)}
           </span>
