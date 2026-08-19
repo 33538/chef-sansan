@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum DeliveryMethod {
+  DELIVERY
+  PICKUP
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  CONFIRMED
+  PREPARING
+  OUT_FOR_DELIVERY
+  READY_FOR_PICKUP
+  COMPLETED
+  CANCELLED
+}
+
+model MenuItem {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  priceCents  Int
+  category    String
+  imageUrl    String?
+  available   Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  orderItems OrderItem[]
+}
+
+model Order {
+  id             String         @id @default(cuid())
+  status         OrderStatus    @default(PENDING_PAYMENT)
+  deliveryMethod DeliveryMethod
+
+  customerName  String
+  customerEmail String
+  customerPhone String
+
+  deliveryAddress String?
+  deliveryNotes   String?
+
+  subtotalCents Int
+  deliveryFeeCents Int @default(0)
+  totalCents    Int
+
+  stripeCheckoutSessionId String? @unique
+  stripePaymentIntentId   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  items OrderItem[]
+
+  @@index([customerEmail])
+}
+
+model OrderItem {
+  id         String @id @default(cuid())
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId    String
+  menuItem   MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItemId String
+
+  nameSnapshot  String
+  priceCentsSnapshot Int
+  quantity      Int
+
+  @@index([orderId])
+}
