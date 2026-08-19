@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { formatCents } from "@/lib/money";
 import { DeleteMenuItemButton } from "@/components/DeleteMenuItemButton";
+import { SeedMenuButton } from "@/components/SeedMenuButton";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +24,13 @@ export default async function AdminMenuPage() {
       </div>
 
       {items.length === 0 ? (
-        <p className="text-foreground/60">No menu items yet.</p>
+        <div className="rounded-xl border border-brand-light bg-white p-6">
+          <p className="mb-3 text-foreground/60">
+            No menu items yet. Load the starter menu to get going quickly, then
+            edit it to match what you actually offer.
+          </p>
+          <SeedMenuButton />
+        </div>
       ) : (
         <div className="overflow-x-auto rounded-xl border border-brand-light bg-white">
           <table className="w-full text-sm">

@@ -3,7 +3,7 @@
 Ordering site for Chef Sansan — homemade, fresh, healthy meals, available for
 delivery or pickup.
 
-Built with Next.js (App Router), Prisma + SQLite, and Stripe Checkout.
+Built with Next.js (App Router), Prisma + Postgres, and Stripe Checkout.
 
 ## What's here
 
@@ -14,43 +14,65 @@ Built with Next.js (App Router), Prisma + SQLite, and Stripe Checkout.
   (add/edit/hide items) and view/update order statuses.
 - **Stripe webhook** — confirms orders once payment succeeds.
 
-## Setup
+## Deploying on Vercel (no local install needed)
 
-```bash
-npm install
-cp .env.example .env   # then fill in the values below
-npm run db:migrate     # creates the SQLite database
-npm run db:seed        # loads the starter menu
-npm run dev
-```
+1. On [vercel.com](https://vercel.com), sign in with GitHub and import this
+   repo (`33538/chef-sansan`).
+2. Before deploying, add a database: in the project's **Storage** tab,
+   create a **Postgres** database (Neon, free tier) and connect it to the
+   project. This automatically sets `DATABASE_URL`.
+3. Fill in the other environment variables Vercel detects from
+   `.env.example` (see the table below).
+4. Deploy. The build runs `prisma db push` automatically, which creates the
+   database tables on first deploy.
+5. Once it's live, go to `/admin/login`, sign in, and click **Load starter
+   menu** on the Menu tab to populate it with sample dishes — no local
+   commands needed. Edit from there to match what you actually offer.
 
-Open [http://localhost:3000](http://localhost:3000).
-
-### Environment variables (`.env`)
+### Environment variables
 
 | Variable | What it's for |
 | --- | --- |
-| `DATABASE_URL` | SQLite file path. Default `file:./dev.db` is fine for local dev. |
+| `DATABASE_URL` | Postgres connection string. Auto-filled if you use Vercel's Storage tab; otherwise get one free from [neon.tech](https://neon.tech). |
 | `STRIPE_SECRET_KEY` | Test-mode secret key from the [Stripe dashboard](https://dashboard.stripe.com/test/apikeys) (starts with `sk_test_`). |
 | `STRIPE_WEBHOOK_SECRET` | Signing secret for the checkout webhook (see below). |
-| `ADMIN_PASSWORD` | Password for `/admin`. Change it from the default. |
-| `ADMIN_SESSION_SECRET` | Random string used to sign admin session cookies. Generate one with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`. |
+| `ADMIN_PASSWORD` | Password for `/admin`. Pick something only you know. |
+| `ADMIN_SESSION_SECRET` | Random string used to sign admin session cookies. Any long random string works — e.g. mash the keyboard for 40+ characters. |
 
-### Testing payments locally (Stripe test mode)
+### Setting up the Stripe webhook (so orders confirm after payment)
 
-1. Install the [Stripe CLI](https://docs.stripe.com/stripe-cli) and run:
-   ```bash
-   stripe listen --forward-to localhost:3000/api/stripe/webhook
-   ```
-   This prints a `whsec_...` value — put it in `STRIPE_WEBHOOK_SECRET`.
-2. Place an order and pay with a Stripe test card, e.g. `4242 4242 4242 4242`,
-   any future expiry date, any CVC, any ZIP.
-3. The order flips from "Awaiting payment" to "Confirmed" once the webhook
+1. In the [Stripe dashboard](https://dashboard.stripe.com/test/webhooks)
+   (test mode), add an endpoint pointing at
+   `https://<your-vercel-domain>/api/stripe/webhook`, subscribed to the
+   `checkout.session.completed` event.
+2. Copy the endpoint's signing secret (`whsec_...`) into
+   `STRIPE_WEBHOOK_SECRET` in Vercel's project settings, then redeploy.
+3. Place a test order and pay with a Stripe test card, e.g.
+   `4242 4242 4242 4242`, any future expiry date, any CVC, any ZIP.
+4. The order flips from "Awaiting payment" to "Confirmed" once the webhook
    fires — watch it update in `/admin/orders`.
 
-No real charges happen in test mode. Swap in live keys (and a live webhook
-endpoint configured in the Stripe dashboard) when you're ready to accept real
-orders.
+No real charges happen in test mode. Swap in live Stripe keys (and a live
+webhook endpoint) when you're ready to accept real orders.
+
+## Running it locally
+
+Once you have Node.js installed (e.g. on a personal machine):
+
+```bash
+npm install
+cp .env.example .env   # fill in DATABASE_URL (same Postgres DB as above,
+                        # or a fresh one) and the other values
+npm run db:push         # syncs the schema to your database
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). For webhook testing
+locally, use the [Stripe CLI](https://docs.stripe.com/stripe-cli):
+
+```bash
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+```
 
 ## Data model
 
@@ -66,9 +88,9 @@ Go to `/admin/login` and sign in with `ADMIN_PASSWORD`.
 
 - **Orders** — every order, newest first, with a status dropdown
   (Confirmed → Preparing → Out for delivery / Ready for pickup → Completed).
-- **Menu** — add, edit, or remove items. Removing an item that's already
-  part of a past order hides it instead of deleting it, so order history
-  stays intact.
+- **Menu** — add, edit, or remove items (or load the starter menu if it's
+  empty). Removing an item that's already part of a past order hides it
+  instead of deleting it, so order history stays intact.
 
 ## Notes on what's intentionally simple
 
@@ -78,14 +100,3 @@ This is a solid MVP, not an enterprise platform. A few things to know:
 - There's a single admin password (no multi-user accounts/roles).
 - No email/SMS notifications yet — customers check status at `/track`.
 - No live order-status push updates — the track page is check-on-demand.
-
-## Deploying
-
-Any Node hosting works (Vercel, Railway, Fly.io, etc.). For production you'll
-want to:
-
-- Swap SQLite for a hosted Postgres/MySQL database (`DATABASE_URL` +
-  matching Prisma driver adapter).
-- Use live Stripe keys and register a production webhook endpoint in the
-  Stripe dashboard pointing at `/api/stripe/webhook`.
-- Set strong, unique values for `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET`.
