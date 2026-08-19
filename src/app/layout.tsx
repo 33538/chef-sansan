@@ -22,9 +22,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Chef Sansan — Homemade Food Delivery",
+  title: "Chef Sansan — Homemade, Elevated",
   description:
-    "Fresh, healthy, homemade meals from Chef Sansan. Order for delivery or pickup.",
+    "Chef-crafted meals made from real, wholesome ingredients — delivered to your door or ready for pickup.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
