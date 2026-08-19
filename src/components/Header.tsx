@@ -13,7 +13,7 @@ export function Header() {
           <span className="font-display text-xl italic text-brand-dark">
             <span aria-hidden="true">🌿</span> Chef Sansan
           </span>
-          <span className="text-xs text-foreground/60">homemade &middot; fresh &middot; healthy</span>
+          <span className="text-xs text-foreground/60">seasonal &middot; handcrafted &middot; delivered</span>
         </Link>
         <nav className="flex items-center gap-5 text-sm font-medium">
           <Link href="/" className="hover:text-brand-dark">
