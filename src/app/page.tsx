@@ -18,21 +18,17 @@ export default async function HomePage() {
       <section className="relative overflow-hidden bg-brand-light">
         <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-14 sm:py-20 md:grid-cols-2">
           <div className="text-center md:text-left">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-medium uppercase tracking-wide text-olive-dark">
-              🌿 Grown with care, cooked from scratch
-            </span>
-            <h1 className="mt-4 font-display text-4xl italic text-brand-dark sm:text-5xl">
-              Homemade. Fresh. Healthy. Tasty.
+            <h1 className="font-display text-4xl italic text-brand-dark sm:text-5xl">
+              Homemade. Fresh. Healthy.
             </h1>
-            <p className="mx-auto mt-4 max-w-md text-foreground/70 md:mx-0">
-              Every dish is cooked fresh by Chef Sansan using real, wholesome
-              ingredients &mdash; delivered to your door or ready for pickup.
+            <p className="mx-auto mt-3 max-w-sm text-foreground/70 md:mx-0">
+              Delivered or ready for pickup.
             </p>
             <Link
               href="#menu"
               className="mt-6 inline-block rounded-full bg-brand px-6 py-3 font-medium text-white transition hover:bg-brand-dark"
             >
-              See today&rsquo;s menu
+              See the menu
             </Link>
           </div>
           <GardenHero className="mx-auto w-full max-w-sm md:max-w-none" />
