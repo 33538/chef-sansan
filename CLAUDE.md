@@ -72,9 +72,23 @@ homemade" rather than plain/generic:
 - No email/SMS notifications — customers check status at `/track`.
 - No formal Prisma migration history (see `db push` note above).
 
+## Menu photos
+
+`MenuItem.imageUrl` is optional. The admin menu form (add/edit) has a
+"Photo URL" field — accepts a full URL or a root-relative path like
+`/menu/photo.jpg` (for images placed directly in `public/menu/` and
+committed to the repo, since the owner can't send image files through
+chat in this environment). Rendered on the customer menu cards and as a
+thumbnail in the admin menu list. No upload/blob storage wired up —
+deliberately kept to "paste a URL" for now.
+
 ## Likely next steps
 
 - Add real Stripe keys and test an actual end-to-end paid order.
-- Replace/supplement the starter menu with the real menu.
+- Owner is sending photos for each menu item — add them via the admin
+  Photo URL field (or commit to `public/menu/`) once available.
+- Confirm whether "Braised Beef Bowl" needs a rice/noodle choice — an
+  earlier draft of the menu mentioned it, the final list didn't, so it's
+  currently a single item with no variant.
 - Maybe a real photo for the hero, once the owner has one with rights to
   use it commercially.
