@@ -38,8 +38,8 @@ export default async function HomePage() {
           <div className="h-72 md:h-auto md:min-h-[560px]">
             {/* eslint-disable-next-line @next/next/no-img-element -- local asset, cropped for hero framing */}
             <img
-              src="/IMG_4267_fish.jpeg"
-              alt="Greek-style grilled fish, fresh from Chef Sansan's kitchen"
+              src="/IMG_1985_chef-background.jpeg"
+              alt="Chef Sansan slicing fresh fish in the kitchen"
               className="h-full w-full object-cover"
             />
           </div>
