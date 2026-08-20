@@ -71,6 +71,7 @@ export default async function HomePage() {
                     name={item.name}
                     description={item.description}
                     priceCents={item.priceCents}
+                    imageUrl={item.imageUrl}
                   />
                 ))}
             </div>

@@ -24,6 +24,7 @@ export default async function EditMenuItemPage({
           priceCents: item.priceCents,
           category: item.category,
           available: item.available,
+          imageUrl: item.imageUrl,
         }}
       />
     </div>

@@ -12,6 +12,7 @@ type Props = {
     priceCents: number;
     category: string;
     available: boolean;
+    imageUrl?: string | null;
   };
 };
 
@@ -22,6 +23,7 @@ export function MenuItemForm({ mode, itemId, initial }: Props) {
   const [price, setPrice] = useState(initial ? (initial.priceCents / 100).toFixed(2) : "");
   const [category, setCategory] = useState(initial?.category ?? "");
   const [available, setAvailable] = useState(initial?.available ?? true);
+  const [imageUrl, setImageUrl] = useState(initial?.imageUrl ?? "");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -42,7 +44,7 @@ export function MenuItemForm({ mode, itemId, initial }: Props) {
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, description, priceCents, category, available }),
+        body: JSON.stringify({ name, description, priceCents, category, available, imageUrl }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -102,6 +104,26 @@ export function MenuItemForm({ mode, itemId, initial }: Props) {
             className="w-full rounded-lg border border-brand-light px-3 py-2"
           />
         </div>
+      </div>
+      <div>
+        <label className="mb-1 block text-sm font-medium">
+          Photo URL <span className="text-foreground/40">(optional)</span>
+        </label>
+        <input
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          placeholder="https://... or /menu/photo.jpg"
+          className="w-full rounded-lg border border-brand-light px-3 py-2"
+        />
+        {imageUrl && (
+          // eslint-disable-next-line @next/next/no-img-element -- arbitrary external URLs, not a fixed set of domains
+          <img
+            src={imageUrl}
+            alt=""
+            className="mt-2 h-24 w-24 rounded-lg object-cover"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+        )}
       </div>
       <label className="flex items-center gap-2 text-sm">
         <input

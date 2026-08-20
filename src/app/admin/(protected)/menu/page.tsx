@@ -47,8 +47,22 @@ export default async function AdminMenuPage() {
               {items.map((item) => (
                 <tr key={item.id} className="border-t border-brand-light">
                   <td className="p-3">
-                    <div className="font-medium">{item.name}</div>
-                    <div className="text-xs text-foreground/50">{item.description}</div>
+                    <div className="flex items-center gap-3">
+                      {item.imageUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element -- arbitrary admin-supplied URLs
+                        <img
+                          src={item.imageUrl}
+                          alt=""
+                          className="h-10 w-10 shrink-0 rounded-md object-cover"
+                        />
+                      ) : (
+                        <div className="h-10 w-10 shrink-0 rounded-md bg-brand-light" />
+                      )}
+                      <div>
+                        <div className="font-medium">{item.name}</div>
+                        <div className="text-xs text-foreground/50">{item.description}</div>
+                      </div>
+                    </div>
                   </td>
                   <td className="p-3">{item.category}</td>
                   <td className="p-3">{formatCents(item.priceCents)}</td>
