@@ -22,7 +22,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Chef Sansan — Homemade, Elevated",
+  title: "Sauce Tao — Homemade, Elevated",
   description:
     "Chef-crafted meals made from real, wholesome ingredients — delivered to your door or ready for pickup.",
 };

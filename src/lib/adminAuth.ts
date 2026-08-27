@@ -1,6 +1,6 @@
 import { SignJWT, jwtVerify } from "jose";
 
-export const ADMIN_COOKIE_NAME = "chef_sansan_admin";
+export const ADMIN_COOKIE_NAME = "sauce_tao_admin";
 const SESSION_DURATION_SECONDS = 60 * 60 * 24 * 7; // 7 days
 
 function getSecretKey() {

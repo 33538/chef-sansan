@@ -1,6 +1,6 @@
-# Chef Sansan
+# Sauce Tao
 
-Ordering site for Chef Sansan — homemade, fresh, healthy meals, available for
+Ordering site for Sauce Tao — homemade, fresh, healthy meals, available for
 delivery or pickup.
 
 Built with Next.js (App Router), Prisma + Postgres, and Stripe Checkout.

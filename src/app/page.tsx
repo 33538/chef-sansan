@@ -39,7 +39,7 @@ export default async function HomePage() {
             {/* eslint-disable-next-line @next/next/no-img-element -- local asset, cropped for hero framing */}
             <img
               src="/IMG_1985_chef-background.jpeg"
-              alt="Chef Sansan slicing fresh fish in the kitchen"
+              alt="The chef slicing fresh fish in the kitchen"
               className="h-full w-full object-cover"
             />
           </div>

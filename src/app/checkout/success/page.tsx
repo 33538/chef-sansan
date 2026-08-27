@@ -19,7 +19,7 @@ function SuccessContent() {
     <div className="mx-auto max-w-lg px-4 py-20 text-center">
       <h1 className="font-display text-3xl text-foreground">Thank you.</h1>
       <p className="mt-3 text-foreground/60">
-        Your payment was received and your order is confirmed. Chef Sansan is
+        Your payment was received and your order is confirmed. Sauce Tao is
         already getting started.
       </p>
       {orderId && (

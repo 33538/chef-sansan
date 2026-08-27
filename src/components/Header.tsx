@@ -10,7 +10,7 @@ export function Header() {
     <header className="sticky top-0 z-10 border-b border-brand-light bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-5">
         <Link href="/" className="flex flex-col leading-tight">
-          <span className="font-display text-xl text-foreground">Chef Sansan</span>
+          <span className="font-display text-xl text-foreground">Sauce Tao</span>
           <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
             seasonal &middot; handcrafted &middot; delivered
           </span>

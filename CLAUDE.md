@@ -1,13 +1,13 @@
 @AGENTS.md
 
-# Chef Sansan — project notes
+# Sauce Tao — project notes
 
 Context for picking this project back up in a fresh session. See `README.md`
 for setup/deploy instructions — this file is about decisions and state.
 
 ## What this is
 
-A food ordering site for Chef Sansan, a homemade-food delivery business.
+A food ordering site for Sauce Tao, a homemade-food delivery business.
 Customers browse a menu, order for delivery or pickup, and pay via Stripe
 Checkout. There's a password-protected admin dashboard for managing the
 menu and order statuses.
@@ -33,6 +33,10 @@ signed admin session cookies.
 
 ## Notable decisions / gotchas hit along the way
 
+- **Renamed the brand from "Chef Sansan" to "Sauce Tao"** (all user-facing
+  copy, the admin cookie name, the cart's localStorage key, and the npm
+  package name). The GitHub repo is still `33538/chef-sansan` — renaming the
+  repo itself is a separate step the owner would need to do.
 - **Started on SQLite, switched to Postgres.** Vercel's filesystem is
   read-only/ephemeral at runtime, so a local SQLite file doesn't work there.
   Now Postgres-only, no SQLite code path left.
