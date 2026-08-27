@@ -20,6 +20,7 @@ export async function POST() {
           description: item.description,
           priceCents: item.priceCents,
           category: group.category,
+          imageUrl: "imageUrl" in item ? item.imageUrl : null,
           sortOrder: sortOrder++,
         },
       });
