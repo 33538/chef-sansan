@@ -37,6 +37,19 @@ signed admin session cookies.
   copy, the admin cookie name, the cart's localStorage key, and the npm
   package name). The GitHub repo is still `33538/chef-sansan` — renaming the
   repo itself is a separate step the owner would need to do.
+- **Temporary logo added to the header** (`public/logo-fire-chill.jpeg`,
+  the "SPICY SAUCE PREMIUM" chili mascot) — the owner picked it from a
+  batch of uploads as a placeholder until a real logo exists.
+- **Several other files the owner uploaded via GitHub's web UI directly to
+  `main` are NOT wired into the site**: a few are other companies' branded
+  products (Jooks On You chili oil, Maldita, Almarela, a Korean gochujang
+  jar) and two (`hotpot.jpeg`, `making hotpot sauce.jpeg`) carry a visible
+  "JACK IMAGES" stock-photo watermark. Displaying these as Sauce Tao's own
+  products would misrepresent them to customers, so they're left
+  unreferenced in `public/` — still technically fetchable by direct URL
+  since Vercel serves that whole folder, but not linked from anywhere.
+  `spice.jpeg` (raw chilies/spices, no watermark) looks like a genuine
+  owner photo and is a likely candidate once confirmed.
 - **Started on SQLite, switched to Postgres.** Vercel's filesystem is
   read-only/ephemeral at runtime, so a local SQLite file doesn't work there.
   Now Postgres-only, no SQLite code path left.
