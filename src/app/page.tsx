@@ -38,8 +38,8 @@ export default async function HomePage() {
           <div className="h-72 md:h-auto md:min-h-[560px]">
             {/* eslint-disable-next-line @next/next/no-img-element -- local asset, cropped for hero framing */}
             <img
-              src="/IMG_1985_chef-background.jpeg"
-              alt="The chef slicing fresh fish in the kitchen"
+              src="/sauce-pic.jpeg"
+              alt="A bowl of Sauce Tao's chili sauce with whole spices"
               className="h-full w-full object-cover"
             />
           </div>
