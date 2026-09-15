@@ -53,4 +53,19 @@ export const STARTER_MENU = [
       },
     ],
   },
+  {
+    category: "Sauces",
+    items: [
+      {
+        name: "Fire-Roasted Pepper Sauce",
+        description: "Peppers charred over open flame, blended into a smoky, deeply savory sauce.",
+        priceCents: 800,
+      },
+      {
+        name: "Hot Pot Broth Base",
+        description: "A rich, aromatic broth simmered from scratch — just add water and your favorite ingredients.",
+        priceCents: 1200,
+      },
+    ],
+  },
 ];
