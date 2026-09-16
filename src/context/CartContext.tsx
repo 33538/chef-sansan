@@ -10,7 +10,7 @@ import {
 } from "react";
 import type { CartItem } from "@/types/cart";
 
-const STORAGE_KEY = "sauce-tao-cart";
+const STORAGE_KEY = "san-san-cart";
 
 type CartContextValue = {
   items: CartItem[];

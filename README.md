@@ -1,6 +1,6 @@
-# Sauce Tao
+# San San
 
-Ordering site for Sauce Tao — homemade, fresh, healthy meals, available for
+Ordering site for San San — homemade, fresh, healthy meals, available for
 delivery or pickup.
 
 Built with Next.js (App Router), Prisma + Postgres, and Stripe Checkout.

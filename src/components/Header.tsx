@@ -13,7 +13,7 @@ export function Header() {
           {/* eslint-disable-next-line @next/next/no-img-element -- local asset, small logo mark */}
           <img src="/logo-fire-chill.jpeg" alt="" className="h-12 w-12 object-contain" />
           <span className="flex flex-col">
-            <span className="font-display text-xl text-foreground">Sauce Tao</span>
+            <span className="font-display text-xl text-foreground">San San</span>
             <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
               seasonal &middot; handcrafted &middot; delivered
             </span>

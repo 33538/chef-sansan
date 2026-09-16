@@ -1,13 +1,13 @@
 @AGENTS.md
 
-# Sauce Tao — project notes
+# San San — project notes
 
 Context for picking this project back up in a fresh session. See `README.md`
 for setup/deploy instructions — this file is about decisions and state.
 
 ## What this is
 
-A food ordering site for Sauce Tao, a homemade-food delivery business.
+A food ordering site for San San, a homemade-food delivery business.
 Customers browse a menu, order for delivery or pickup, and pay via Stripe
 Checkout. There's a password-protected admin dashboard for managing the
 menu and order statuses.
@@ -33,23 +33,42 @@ signed admin session cookies.
 
 ## Notable decisions / gotchas hit along the way
 
-- **Renamed the brand from "Chef Sansan" to "Sauce Tao"** (all user-facing
-  copy, the admin cookie name, the cart's localStorage key, and the npm
-  package name). The GitHub repo is still `33538/chef-sansan` — renaming the
-  repo itself is a separate step the owner would need to do.
+- **Brand name history: "Chef Sansan" → "Sauce Tao" → "San San".** Renamed
+  once to "Sauce Tao" (all user-facing copy, the admin cookie name, the
+  cart's localStorage key, the npm package name), then the owner reverted
+  it to "San San" — same set of places, updated again. If you're doing a
+  repo-wide rename search, check for stale references to either old name.
+  The GitHub repo is still `33538/chef-sansan` — renaming the repo itself
+  is a separate step the owner would need to do.
 - **Temporary logo added to the header** (`public/logo-fire-chill.jpeg`,
   the "SPICY SAUCE PREMIUM" chili mascot) — the owner picked it from a
-  batch of uploads as a placeholder until a real logo exists.
+  batch of uploads as a placeholder until a real logo exists. Note this
+  logo says "PREMIUM," not "San San" — a newer upload,
+  `processed-C5BB2B15-C0BD-4585-A348-88BED14D0FFB.jpeg`, has the same
+  mascot art but says "SPICY SAUCE San San" instead, which may be the
+  better match now that the brand is San San. Not swapped in yet — ask
+  the owner.
 - **Deleted 6 uploaded files that weren't usable**: photos of other
   companies' branded products (Jooks On You chili oil, Maldita, Almarela,
   a Korean gochujang jar) and two carrying a visible "JACK IMAGES"
   stock-photo watermark (`hotpot.jpeg`, `making hotpot sauce.jpeg`).
-  Displaying these as Sauce Tao's own products would have misrepresented
+  Displaying these as San San's own products would have misrepresented
   them to customers. `girly design chill sauce 1/2.jpeg` (a jar-label
   mockup) are still sitting unreferenced in `public/` pending the owner
   confirming they own the rights to that design. `spice.jpeg` (raw
   chilies/spices, no watermark) looks like a genuine owner photo and is a
   likely candidate once confirmed.
+- **4 more files uploaded, also not yet confirmed as real product
+  photography** — they look AI-generated (garbled label text, illustrated
+  mascot art rather than photos): `original-0A49BF62-...jpeg` (a mockup
+  jar labeled "San San / Chonqing spicy sauce"), `original-48860352-...jpeg`
+  (a cartoon panda mascot in opera armor labeled "San San"),
+  `processed-C5BB2B15-...jpeg` (logo variant, see above), and
+  `original-91FD4B3D-...jpeg` (a styled chili-sauce bowl photo, same
+  polished/stock look as the removed `sauce-pic.jpeg`). None wired into
+  the site yet — waiting on the owner to confirm whether these represent
+  a real product or are just placeholder branding art, and if so which
+  one (if any) should become the hero photo.
 - **Started on SQLite, switched to Postgres.** Vercel's filesystem is
   read-only/ephemeral at runtime, so a local SQLite file doesn't work there.
   Now Postgres-only, no SQLite code path left.
