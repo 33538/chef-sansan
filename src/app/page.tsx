@@ -15,34 +15,24 @@ export default async function HomePage() {
   return (
     <div>
       <section className="border-b border-brand-light">
-        <div className="mx-auto grid max-w-6xl items-stretch md:grid-cols-2">
-          <div className="flex flex-col justify-center px-4 py-20 text-center sm:py-28 md:px-12 md:text-left">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/50">
-              Seasonal &middot; Handcrafted &middot; Delivered
-            </p>
-            <h1 className="mt-6 font-display text-5xl text-foreground sm:text-6xl">
-              Homemade, <span className="italic">elevated.</span>
-            </h1>
-            <div className="mx-auto mt-6 h-px w-16 bg-brand-light md:mx-0" />
-            <p className="mx-auto mt-6 max-w-md text-foreground/60 md:mx-0">
-              Chef-crafted meals made from real, wholesome ingredients
-              &mdash; delivered to your door or ready for pickup.
-            </p>
-            <Link
-              href="#menu"
-              className="mx-auto mt-10 inline-block rounded-full bg-brand px-8 py-3 text-sm font-medium uppercase tracking-wide text-background transition hover:bg-brand-dark md:mx-0 md:self-start"
-            >
-              See the menu
-            </Link>
-          </div>
-          <div className="h-72 md:h-auto md:min-h-[560px]">
-            {/* eslint-disable-next-line @next/next/no-img-element -- local asset, cropped for hero framing */}
-            <img
-              src="/sauce-pic.jpeg"
-              alt="A bowl of Sauce Tao's chili sauce with whole spices"
-              className="h-full w-full object-cover"
-            />
-          </div>
+        <div className="mx-auto max-w-2xl px-4 py-20 text-center sm:py-28">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/50">
+            Seasonal &middot; Handcrafted &middot; Delivered
+          </p>
+          <h1 className="mt-6 font-display text-5xl text-foreground sm:text-6xl">
+            Homemade, <span className="italic">elevated.</span>
+          </h1>
+          <div className="mx-auto mt-6 h-px w-16 bg-brand-light" />
+          <p className="mx-auto mt-6 max-w-md text-foreground/60">
+            Chef-crafted meals made from real, wholesome ingredients
+            &mdash; delivered to your door or ready for pickup.
+          </p>
+          <Link
+            href="#menu"
+            className="mx-auto mt-10 inline-block rounded-full bg-brand px-8 py-3 text-sm font-medium uppercase tracking-wide text-background transition hover:bg-brand-dark"
+          >
+            See the menu
+          </Link>
         </div>
       </section>
 

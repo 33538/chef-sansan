@@ -107,5 +107,9 @@ deliberately kept to "paste a URL" for now.
 - Confirm whether "Braised Beef Bowl" needs a rice/noodle choice — an
   earlier draft of the menu mentioned it, the final list didn't, so it's
   currently a single item with no variant.
-- Maybe a real photo for the hero, once the owner has one with rights to
-  use it commercially.
+- **Hero photo removed, owner is sending a replacement.** `sauce-pic.jpeg`
+  was pulled and the hero section collapsed to text-only (single centered
+  column, `src/app/page.tsx`) rather than leaving a broken image. Once a
+  new photo lands in `public/`, restore the two-column layout with an
+  `<img>` on the right — see the git history for the prior markup if it's
+  easier to restore than rewrite.
