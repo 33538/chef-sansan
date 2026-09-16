@@ -132,3 +132,9 @@ deliberately kept to "paste a URL" for now.
   new photo lands in `public/`, restore the two-column layout with an
   `<img>` on the right — see the git history for the prior markup if it's
   easier to restore than rewrite.
+- **PENDING: menu categories need to change.** The business is a sauce
+  brand (San San), not a meal-delivery service, so "Appetizer / Mains /
+  Desserts" (with a bolted-on "Sauces" category) doesn't really fit
+  anymore. Owner doesn't have the new category list yet — explicitly said
+  to leave this as an open issue until they decide. Don't restructure
+  `src/lib/starterMenu.ts` on your own guess; wait for their input.
